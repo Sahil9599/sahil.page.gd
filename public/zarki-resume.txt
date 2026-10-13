@@ -1,0 +1,29 @@
+ZARKI
+Cybersecurity Student
+India
+
+Email: zarki201432@gmail.com
+GitHub: https://github.com/zarki201432
+LinkedIn: https://www.linkedin.com/in/zarki201432/
+
+PROFILE
+Cybersecurity student focused on authorized security labs, networking, web security, and practical defensive learning.
+
+TECHNICAL SKILLS
+Linux, Python, TCP/IP, Nmap, Wireshark, Burp Suite, Splunk, Git
+
+PROJECTS
+- Network Recon Lab
+  Mapped exposed services on an isolated host-only lab machine before vulnerability triage.
+- Password Vault Audit
+  Reviewed demo password-vault architecture through OWASP ASVS threat-modeling lens.
+- Threat Detection Dashboard
+  Processed benign security logs into an analyst dashboard with alerting rules.
+
+EDUCATION
+Cybersecurity Student, Class of 2026
+
+CERTIFICATIONS & LEARNING PATH
+- Google Cybersecurity Certificate
+- TryHackMe / HackTheBox Labs
+- CompTIA Security+ (In Progress)

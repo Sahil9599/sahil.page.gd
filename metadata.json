@@ -1,0 +1,6 @@
+{
+  "name": "Zarki Portfolio - sahil.page.gd",
+  "description": "Cybersecurity student portfolio with interactive terminal and security lab by Zarki.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
