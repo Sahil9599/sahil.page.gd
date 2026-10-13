@@ -39,7 +39,7 @@ const PROJECT_DATA: Record<string, ProjectDetail> = {
     tools: 'Nmap, Wireshark, Linux',
     setup: 'Two local virtual machines on an isolated host-only network. No public targets were scanned.',
     learned: 'Service enumeration is only the start: context, validation, and responsible documentation matter.',
-    link: 'https://github.com/zarki201432/sahil.page.gd'
+    link: 'https://github.com/Sahil9599/sahil.page.gd'
   },
   vault: {
     tag: 'PROJECT / 02',
@@ -48,7 +48,7 @@ const PROJECT_DATA: Record<string, ProjectDetail> = {
     tools: 'OWASP ASVS, threat modeling, browser developer tools',
     setup: 'A locally hosted demo application and a written threat-model worksheet.',
     learned: 'Strong authentication is a system of choices—not a single feature.',
-    link: 'https://github.com/zarki201432/sahil.page.gd'
+    link: 'https://github.com/Sahil9599/sahil.page.gd'
   },
   detect: {
     tag: 'PROJECT / 03',
@@ -57,7 +57,7 @@ const PROJECT_DATA: Record<string, ProjectDetail> = {
     tools: 'Python, Splunk, SIEM concepts',
     setup: 'Synthetic logs and benign security events processed locally.',
     learned: 'Useful alerting is about reducing noise and giving analysts context.',
-    link: 'https://github.com/zarki201432/sahil.page.gd'
+    link: 'https://github.com/Sahil9599/sahil.page.gd'
   }
 };
 
@@ -290,8 +290,8 @@ export default function App() {
       case 'contact':
         newLines.push(
           { id: Math.random().toString(), type: 'accent', content: 'Email: zarki201432@gmail.com' },
-          { id: Math.random().toString(), type: 'output', content: 'GitHub: github.com/zarki201432' },
-          { id: Math.random().toString(), type: 'output', content: 'LinkedIn: linkedin.com/in/zarki201432/' }
+          { id: Math.random().toString(), type: 'output', content: 'GitHub: github.com/Sahil9599' },
+          { id: Math.random().toString(), type: 'output', content: 'LinkedIn: linkedin.com/in/Sahil9599/' }
         );
         break;
 
@@ -299,7 +299,7 @@ export default function App() {
         newLines.push({
           id: Math.random().toString(),
           type: 'accent',
-          content: 'GitHub Profile: https://github.com/zarki201432'
+          content: 'GitHub Profile: https://github.com/Sahil9599'
         });
         break;
 
@@ -308,7 +308,7 @@ export default function App() {
         newLines.push(
           { id: Math.random().toString(), type: 'accent', content: 'REPOSITORY TARGET: sahil.page.gd' },
           { id: Math.random().toString(), type: 'output', content: 'Run in your local terminal to push to your repository:' },
-          { id: Math.random().toString(), type: 'info', content: 'git remote add origin https://github.com/zarki201432/sahil.page.gd.git' },
+          { id: Math.random().toString(), type: 'info', content: 'git remote add origin https://github.com/Sahil9599/sahil.page.gd.git' },
           { id: Math.random().toString(), type: 'info', content: 'git push -u origin main' },
           { id: Math.random().toString(), type: 'output', content: "Click 'Upload to sahil.page.gd' in the top header to view the full GitHub push guide." }
         );
@@ -387,7 +387,7 @@ export default function App() {
 git add .
 git commit -m "Deploy sahil.page.gd portfolio"
 git branch -M main
-git remote add origin https://github.com/zarki201432/sahil.page.gd.git
+git remote add origin https://github.com/Sahil9599/sahil.page.gd.git
 git push -u origin main`;
     navigator.clipboard.writeText(commands);
     setCopiedCmd(true);
@@ -449,7 +449,7 @@ git push -u origin main`;
 
           <a
             className="social-icon"
-            href="https://github.com/zarki201432"
+            href="https://github.com/Sahil9599"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub profile"
@@ -545,7 +545,7 @@ git push -u origin main`;
           </div>
 
           <p className="profile-note">
-            Target Repository: <strong>github.com/zarki201432/sahil.page.gd</strong> · Certifications: <strong>Google Cybersecurity / TryHackMe / CompTIA Security+ (In Progress)</strong>
+            Target Repository: <strong>github.com/Sahil9599/sahil.page.gd</strong> · Certifications: <strong>Google Cybersecurity / TryHackMe / CompTIA Security+ (In Progress)</strong>
           </p>
         </section>
 
@@ -643,7 +643,7 @@ git push -u origin main`;
             <div>
               <a
                 className="github-button"
-                href="https://github.com/zarki201432"
+                href="https://github.com/Sahil9599"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -811,10 +811,10 @@ git push -u origin main`;
                 <a href="mailto:zarki201432@gmail.com">
                   <Mail className="w-3.5 h-3.5 inline mr-1" /> EMAIL ↗
                 </a>
-                <a href="https://github.com/zarki201432" target="_blank" rel="noreferrer">
+                <a href="https://github.com/Sahil9599" target="_blank" rel="noreferrer">
                   <Github className="w-3.5 h-3.5 inline mr-1" /> GITHUB ↗
                 </a>
-                <a href="https://www.linkedin.com/in/zarki201432/" target="_blank" rel="noreferrer">
+                <a href="https://www.linkedin.com/in/Sahil9599/" target="_blank" rel="noreferrer">
                   <Linkedin className="w-3.5 h-3.5 inline mr-1" /> LINKEDIN ↗
                 </a>
               </div>
@@ -908,7 +908,7 @@ git push -u origin main`;
                       <Download className="w-4 h-4" /> DOWNLOAD sahil.page.gd.zip
                     </a>
                     <a
-                      href="https://github.com/zarki201432/sahil.page.gd/upload/main"
+                      href="https://github.com/Sahil9599/sahil.page.gd/upload/main"
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-800 text-neutral-200 border border-neutral-600 font-mono text-xs hover:border-lime-400"
@@ -925,7 +925,7 @@ git push -u origin main`;
                   </p>
                   <div className="bg-black/80 border border-neutral-700 p-3 rounded font-mono text-xs text-lime-400 mt-2 relative">
                     <pre className="overflow-x-auto whitespace-pre">
-{`git remote add origin https://github.com/zarki201432/sahil.page.gd.git
+{`git remote add origin https://github.com/Sahil9599/sahil.page.gd.git
 git branch -M main
 git push -u origin main`}
                     </pre>

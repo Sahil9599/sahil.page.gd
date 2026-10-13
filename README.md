@@ -3,7 +3,7 @@
 Interactive Cybersecurity Portfolio & Lab Terminal for **Zarki (Sahil)**.
 
 Live Domain: [https://sahil.page.gd](https://sahil.page.gd)  
-GitHub Profile: [https://github.com/zarki201432](https://github.com/zarki201432)  
+GitHub Profile: [https://github.com/Sahil9599](https://github.com/Sahil9599)  
 Contact: [zarki201432@gmail.com](mailto:zarki201432@gmail.com)
 
 ---
@@ -23,7 +23,7 @@ git init
 git add .
 git commit -m "Deploy sahil.page.gd portfolio"
 git branch -M main
-git remote add origin https://github.com/zarki201432/sahil.page.gd.git
+git remote add origin https://github.com/Sahil9599/sahil.page.gd.git
 git push -u origin main
 ```
 
@@ -41,7 +41,7 @@ git push -u origin main
    - Save and enable **Enforce HTTPS**.
 4. In your DNS provider for `page.gd`, point your CNAME record:
    - Host: `sahil`
-   - Value: `zarki201432.github.io`
+   - Value: `Sahil9599.github.io`
 
 ---
 
