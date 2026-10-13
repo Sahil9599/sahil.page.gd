@@ -104,6 +104,11 @@ export function GeminiChatbot({ isOpen, onClose, onOpen, initialPrompt }: Gemini
       });
 
       if (!res.ok) {
+        if (res.status === 404) {
+          throw new Error(
+            "Backend server (/api/chat) is not active on this static host. GitHub Pages only serves static files and cannot execute server-side Node.js code. To run full-stack AI with your custom domain sahil.page.gd, deploy this repository to Vercel or Render (both free), or test it directly in the AI Studio live preview!"
+          );
+        }
         const errorData = await res.json().catch(() => ({}));
         throw new Error(errorData.error || `Server responded with ${res.status}`);
       }
