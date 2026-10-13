@@ -12,8 +12,11 @@ import {
   Sun,
   Moon,
   Mail,
-  Linkedin
+  Linkedin,
+  Bot,
+  Sparkles
 } from 'lucide-react';
+import { GeminiChatbot } from './components/GeminiChatbot.tsx';
 
 interface ProjectDetail {
   tag: string;
@@ -94,6 +97,10 @@ export default function App() {
     data?: ProjectDetail | PostDetail;
   } | null>(null);
 
+  // Gemini Chatbot state
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatPrompt, setChatPrompt] = useState<string | undefined>(undefined);
+
   // Terminal state
   const [terminalInput, setTerminalInput] = useState('');
   const [history, setHistory] = useState<string[]>([]);
@@ -162,7 +169,8 @@ export default function App() {
   const commandList = [
     'help', 'ls', 'pwd', 'whoami', 'uname -a', 'date', 'ip a',
     'cat readme.md', 'skills', 'about', 'projects', 'certifications',
-    'education', 'contact', 'github', 'repo', 'theme', 'nmap --help', 'clear'
+    'education', 'contact', 'github', 'repo', 'theme', 'nmap --help', 'clear',
+    'chat', 'ai'
   ];
 
   const runCommand = (raw: string) => {
@@ -181,6 +189,27 @@ export default function App() {
       return;
     }
 
+    if (cmd === 'chat' || cmd === 'ai' || cmd.startsWith('ai ') || cmd.startsWith('chat ') || cmd.startsWith('gemini ')) {
+      const prompt = raw.replace(/^(ai|gemini|chat)\s*/i, '').trim();
+      setChatOpen(true);
+      if (prompt) {
+        setChatPrompt(prompt);
+        newLines.push({
+          id: Math.random().toString(),
+          type: 'accent',
+          content: `Opening Cyber AI Chatbot with prompt: "${prompt}"...`
+        });
+      } else {
+        newLines.push({
+          id: Math.random().toString(),
+          type: 'accent',
+          content: 'Opening multi-turn Cyber AI Chatbot interface...'
+        });
+      }
+      setTerminalLines(prev => [...prev, ...newLines]);
+      return;
+    }
+
     switch (cmd) {
       case 'help':
         newLines.push(
@@ -188,6 +217,7 @@ export default function App() {
           { id: Math.random().toString(), type: 'output', content: '  projects / skills / about         portfolio information' },
           { id: Math.random().toString(), type: 'output', content: '  certifications / education        learning profile' },
           { id: Math.random().toString(), type: 'output', content: '  contact / github / repo           quick links and github setup' },
+          { id: Math.random().toString(), type: 'output', content: '  chat, ai <prompt>                 Gemini multi-turn cyber assistant' },
           { id: Math.random().toString(), type: 'output', content: '  ls, pwd, whoami, uname -a, date   Linux environment commands' },
           { id: Math.random().toString(), type: 'output', content: '  ip a, cat readme.md, nmap --help  security lab commands' },
           { id: Math.random().toString(), type: 'output', content: '  theme, clear                      terminal utility' }
@@ -430,6 +460,16 @@ git push -u origin main`;
         <nav className={mobileMenuOpen ? 'open' : ''} aria-label="Main navigation">
           <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
           <a href="#lab" onClick={() => setMobileMenuOpen(false)}>Terminal Lab</a>
+          <button
+            type="button"
+            onClick={() => {
+              setChatOpen(true);
+              setMobileMenuOpen(false);
+            }}
+            className="text-left font-mono text-xs text-[#c8ff35] hover:opacity-80 md:hidden bg-transparent border-0 cursor-pointer p-0"
+          >
+            ✦ Ask Cyber AI
+          </button>
           <a href="#work" onClick={() => setMobileMenuOpen(false)}>Projects</a>
           <a href="#journal" onClick={() => setMobileMenuOpen(false)}>Writeups</a>
           <a href="#skills" onClick={() => setMobileMenuOpen(false)}>Skills</a>
@@ -437,6 +477,16 @@ git push -u origin main`;
         </nav>
 
         <div className="header-actions">
+          <button
+            className="github-deploy-pill"
+            type="button"
+            onClick={() => setChatOpen(true)}
+            title="Open Gemini Cyber AI Chatbot"
+          >
+            <Bot className="w-3.5 h-3.5 text-lime-400" />
+            <span>AI Chat</span>
+          </button>
+
           <button
             className="github-deploy-pill"
             type="button"
@@ -632,6 +682,7 @@ git push -u origin main`;
             <button type="button" onClick={() => runCommand('skills')}>skills</button>
             <button type="button" onClick={() => runCommand('certifications')}>certifications</button>
             <button type="button" onClick={() => runCommand('repo')}>repo (sahil.page.gd)</button>
+            <button type="button" onClick={() => runCommand('chat')} className="!border-[#c8ff35] !text-[#c8ff35]">✦ ai chat</button>
             <button type="button" onClick={() => runCommand('theme')}>theme</button>
           </p>
         </section>
@@ -995,6 +1046,17 @@ git push -u origin main`}
           </div>
         </div>
       )}
+
+      {/* Multi-turn Gemini AI Chatbot */}
+      <GeminiChatbot
+        isOpen={chatOpen}
+        onClose={() => {
+          setChatOpen(false);
+          setChatPrompt(undefined);
+        }}
+        onOpen={() => setChatOpen(true)}
+        initialPrompt={chatPrompt}
+      />
     </div>
   );
 }
