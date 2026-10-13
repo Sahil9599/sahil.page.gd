@@ -12,8 +12,16 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Messages array is required.' });
     }
 
+    const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || process.env.GEMINI_KEY || process.env.VITE_GEMINI_API_KEY;
+
+    if (!apiKey) {
+      return res.status(500).json({
+        error: "GEMINI_API_KEY is missing in your hosting environment. Go to your Vercel Project Settings > Environment Variables, add Key 'GEMINI_API_KEY' with your Google AI Studio API key, and click Redeploy."
+      });
+    }
+
     const ai = new GoogleGenAI({
-      apiKey: process.env.GEMINI_API_KEY,
+      apiKey,
       httpOptions: {
         headers: {
           'User-Agent': 'aistudio-build',

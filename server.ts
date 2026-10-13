@@ -15,17 +15,25 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
-  httpOptions: {
-    headers: {
-      'User-Agent': 'aistudio-build',
-    },
-  },
-});
-
 app.post('/api/chat', async (req, res) => {
   try {
+    const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || process.env.GEMINI_KEY || process.env.VITE_GEMINI_API_KEY;
+
+    if (!apiKey) {
+      return res.status(500).json({
+        error: "GEMINI_API_KEY is not configured in your deployment environment. Please add GEMINI_API_KEY in your hosting dashboard (e.g. Vercel Settings > Environment Variables) and redeploy.",
+      });
+    }
+
+    const ai = new GoogleGenAI({
+      apiKey,
+      httpOptions: {
+        headers: {
+          'User-Agent': 'aistudio-build',
+        },
+      },
+    });
+
     const { messages, role = 'general', taskComplexity = 'general' } = req.body;
 
     if (!messages || !Array.isArray(messages) || messages.length === 0) {

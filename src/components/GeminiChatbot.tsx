@@ -124,12 +124,18 @@ export function GeminiChatbot({ isOpen, onClose, onOpen, initialPrompt }: Gemini
 
       setMessages(prev => [...prev, aiMessage]);
     } catch (err: any) {
+      let friendlyError = err.message || 'Unable to connect to the Gemini service.';
+      if (friendlyError.includes('default credentials') || friendlyError.includes('credentials')) {
+        friendlyError =
+          'GEMINI_API_KEY is not set in your Vercel deployment.\n\nTo fix this:\n1. Open your Vercel project dashboard\n2. Go to Settings > Environment Variables\n3. Add Key: GEMINI_API_KEY and Value: (your Gemini API key from Google AI Studio)\n4. Click Redeploy under Deployments tab!';
+      }
+
       setMessages(prev => [
         ...prev,
         {
           id: Math.random().toString(),
           role: 'assistant',
-          content: `⚠️ Error: ${err.message || 'Unable to connect to the Gemini service.'}`,
+          content: `⚠️ Error: ${friendlyError}`,
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         }
       ]);
