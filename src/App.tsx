@@ -876,69 +876,74 @@ git push -u origin main`;
             {activeModal.type === 'github' && (
               <div className="modal-inner">
                 <span className="flex items-center gap-1.5">
-                  <FolderGit2 className="w-4 h-4 text-lime-400" /> REPOSITORY DEPLOYMENT
+                  <FolderGit2 className="w-4 h-4 text-lime-400" /> REPOSITORY: sahil.page.gd
                 </span>
-                <h2>Upload to GitHub: <span className="text-lime-400">sahil.page.gd</span></h2>
+                <h2>Upload Website to <span className="text-lime-400">sahil.page.gd</span></h2>
                 
                 <p>
-                  To host this portfolio on GitHub under repository <strong>sahil.page.gd</strong> (which can power GitHub Pages or custom domain <code>sahil.page.gd</code>), follow these steps:
+                  Because GitHub requires your account authentication (Personal Access Token or SSH key) to write to your repository, you have <strong>3 easy ways</strong> to complete the upload:
                 </p>
 
-                <h3>STEP 1: CREATE REPOSITORY ON GITHUB</h3>
-                <p>
-                  Go to <a href="https://github.com/new" target="_blank" rel="noreferrer" className="underline">github.com/new</a> and create a repository named:
-                  <br />
-                  <code className="text-lime-300 font-mono text-sm bg-neutral-900 px-2 py-1 rounded inline-block mt-2">
-                    sahil.page.gd
-                  </code>
-                </p>
+                <div className="my-5 p-4 bg-lime-950/30 border border-lime-500/40 rounded">
+                  <h3 className="!mt-0 text-lime-400 font-bold">METHOD 1: LET ME PUSH FOR YOU (EASIEST)</h3>
+                  <p className="text-sm text-neutral-200">
+                    If you share a temporary <strong>GitHub Personal Access Token (PAT)</strong> with <code>repo</code> permissions in our chat, I can run the push command for you immediately:
+                  </p>
+                  <p className="text-xs text-neutral-400 mt-1">
+                    Generate one in 30 seconds at: <a href="https://github.com/settings/tokens/new" target="_blank" rel="noreferrer" className="text-lime-400 underline">github.com/settings/tokens/new</a> (check <code>repo</code> scope) and paste it into chat.
+                  </p>
+                </div>
 
-                <h3>STEP 2: RUN GIT PUSH COMMANDS</h3>
-                <div className="bg-black/70 border border-neutral-700 p-3 rounded font-mono text-xs text-lime-400 mt-2 relative">
-                  <pre className="overflow-x-auto whitespace-pre">
-{`git init
-git add .
-git commit -m "Initial commit for sahil.page.gd portfolio"
+                <div className="my-5 p-4 bg-neutral-900 border border-neutral-700 rounded">
+                  <h3 className="!mt-0 text-sky-400 font-bold">METHOD 2: DOWNLOAD ZIP & DRAG-AND-DROP</h3>
+                  <p className="text-sm text-neutral-300">
+                    Download the pre-packaged zip of this complete project and upload it directly on GitHub's website:
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-3">
+                    <a
+                      href="/sahil.page.gd.zip"
+                      download="sahil.page.gd.zip"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-lime-400 text-neutral-950 font-mono text-xs font-bold hover:bg-lime-300"
+                    >
+                      <Download className="w-4 h-4" /> DOWNLOAD sahil.page.gd.zip
+                    </a>
+                    <a
+                      href="https://github.com/zarki201432/sahil.page.gd/upload/main"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-800 text-neutral-200 border border-neutral-600 font-mono text-xs hover:border-lime-400"
+                    >
+                      <ExternalLink className="w-4 h-4" /> UPLOAD ON GITHUB WEB ↗
+                    </a>
+                  </div>
+                </div>
+
+                <div className="my-5 p-4 bg-neutral-900 border border-neutral-700 rounded">
+                  <h3 className="!mt-0 text-sky-400 font-bold">METHOD 3: PUSH VIA YOUR TERMINAL</h3>
+                  <p className="text-sm text-neutral-300">
+                    Run these commands in your local computer's terminal:
+                  </p>
+                  <div className="bg-black/80 border border-neutral-700 p-3 rounded font-mono text-xs text-lime-400 mt-2 relative">
+                    <pre className="overflow-x-auto whitespace-pre">
+{`git remote add origin https://github.com/zarki201432/sahil.page.gd.git
 git branch -M main
-git remote add origin https://github.com/zarki201432/sahil.page.gd.git
 git push -u origin main`}
-                  </pre>
-                  <button
-                    type="button"
-                    onClick={copyGitCommands}
-                    className="absolute top-2 right-2 p-1.5 bg-neutral-800 hover:bg-neutral-700 text-white rounded border border-neutral-600 flex items-center gap-1 text-[11px]"
-                  >
-                    {copiedCmd ? <Check className="w-3.5 h-3.5 text-lime-400" /> : <Copy className="w-3.5 h-3.5" />}
-                    {copiedCmd ? 'Copied!' : 'Copy'}
-                  </button>
+                    </pre>
+                    <button
+                      type="button"
+                      onClick={copyGitCommands}
+                      className="absolute top-2 right-2 p-1.5 bg-neutral-800 hover:bg-neutral-700 text-white rounded border border-neutral-600 flex items-center gap-1 text-[11px]"
+                    >
+                      {copiedCmd ? <Check className="w-3.5 h-3.5 text-lime-400" /> : <Copy className="w-3.5 h-3.5" />}
+                      {copiedCmd ? 'Copied!' : 'Copy'}
+                    </button>
+                  </div>
                 </div>
 
-                <h3>STEP 3: GITHUB PAGES CONFIGURATION</h3>
-                <p>
-                  In your GitHub repository settings under <strong>Pages</strong>:
-                  <br />
-                  • Source: Deploy from branch <code>main</code> (root or <code>/dist</code>)
-                  <br />
-                  • Custom domain: <code>sahil.page.gd</code> (configure DNS CNAME record to <code>zarki201432.github.io</code>)
+                <h3>GITHUB PAGES SETTING:</h3>
+                <p className="text-xs text-neutral-400">
+                  After uploading, go to <strong>Settings → Pages</strong> in your repository, set branch to <code>main</code>, and your website will be live at <strong>sahil.page.gd</strong>!
                 </p>
-
-                <div className="mt-6 flex flex-wrap gap-4 items-center">
-                  <a
-                    href="https://github.com/zarki201432"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-4 py-2 bg-lime-400 text-neutral-950 font-mono text-xs font-bold hover:bg-lime-300"
-                  >
-                    OPEN GITHUB REPOSITORIES ↗
-                  </a>
-                  <a
-                    href="/zarki-resume.txt"
-                    download="zarki-resume.txt"
-                    className="px-4 py-2 border border-neutral-600 text-neutral-200 font-mono text-xs hover:border-lime-400"
-                  >
-                    DOWNLOAD RÉSUMÉ
-                  </a>
-                </div>
               </div>
             )}
 
